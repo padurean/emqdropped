@@ -19,4 +19,7 @@ Sample output:
 ### Built and cross-compiled using [Go](https://golang.org/)
 
 Binaries for **MacOS**, **Linux** and **Windows** are available in the folders with descriptive names.
-In case of errors compile it yourself using `go build`.
+In case of errors compile it yourself:
+- On MacOS: `go build -o ./macos/emqdropped`.
+- On Linux: `go build -o ./linux-amd64/emqdropped`
+- On Windows: `go build -o ./windows/emqdropped.exe`

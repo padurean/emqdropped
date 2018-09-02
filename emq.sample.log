@@ -24,3 +24,26 @@
 15:25:19.299 [debug] Client(SimBioAsset123@127.0.0.1:52387): RECV DISCONNECT(Q0, R0, D0)
 15:25:19.299 [debug] Client(127.0.0.1:52387): Terminated for normal
 15:25:19.299 [debug] Client(SimBioAsset123@127.0.0.1:52387): Shutdown for normal
+16:34:07.705 [debug] Client(127.0.0.1:53120): SEND [<<" ">>,<<2>>,<<0,0>>,<<>>]
+16:34:07.705 [debug] Client(127.0.0.1:53120): Keepalive at the interval of 45
+16:34:07.705 [debug] Client(127.0.0.1:53120): RECV <<48,40,0,18,97,115,115,101,116,47,99,111,109,109,97,110,100,115,47,52,53,54,83,111,109,101,32,115,101,116,112,111,105,110,116,32,52,53,54,46,55,56,224,0>>
+16:34:07.705 [debug] Client(Sally@127.0.0.1:53120): RECV PUBLISH(Q0, R0, D0, Topic=asset/commands/456, PacketId=undefined, Payload=<<"Some setpoint 456.78">>)
+16:34:07.705 [debug] Sally/sally PUBLISH to asset/commands/456: <<"Some setpoint 456.78">>
+16:34:07.705 [debug] Client(Sally@127.0.0.1:53120): RECV DISCONNECT(Q0, R0, D0)
+16:34:07.705 [debug] Client(127.0.0.1:53120): Terminated for normal
+16:34:07.705 [debug] Client(Sally@127.0.0.1:53120): Shutdown for normal
+16:34:07.705 [debug] Client(Simbio@127.0.0.1:53113): SEND PUBLISH(Q0, R0, D0, Topic=asset/commands/456, PacketId=undefined, Payload=<<"Some setpoint 456.78">>)
+16:34:07.705 [debug] Client(127.0.0.1:53113): SEND [<<"0">>,<<"(">>,<<0,18,97,115,115,101,116,47,99,111,109,109,97,110,100,115,47,52,53,54>>,<<"Some setpoint 456.78">>]
+16:34:10.733 [debug] Client(127.0.0.1:53113): Terminated for {shutdown,closed}
+16:34:10.733 [debug] Client(Simbio@127.0.0.1:53113): Shutdown for closed
+16:34:13.063 [debug] Client(127.0.0.1:53122): RECV <<16,31,0,4,77,81,84,84,4,194,0,60,0,5,83,97,108,108,121,0,5,115,97,108,108,121,0,5,115,97,108,108,121>>
+16:34:13.063 [debug] Client(undefined@127.0.0.1:53122): RECV CONNECT(Q0, R0, D0, ClientId=Sally, ProtoName=MQTT, ProtoVsn=4, CleanSess=true, KeepAlive=60, Username=sally, Password=******)
+16:34:13.063 [debug] Client(Sally@127.0.0.1:53122): SEND CONNACK(Q0, R0, D0, AckFlags=0, ReturnCode=0)
+16:34:13.063 [debug] Client(127.0.0.1:53122): SEND [<<" ">>,<<2>>,<<0,0>>,<<>>]
+16:34:13.064 [debug] Client(127.0.0.1:53122): Keepalive at the interval of 45
+16:34:13.064 [debug] Client(127.0.0.1:53122): RECV <<48,40,0,18,97,115,115,101,116,47,99,111,109,109,97,110,100,115,47,52,53,54,83,111,109,101,32,115,101,116,112,111,105,110,116,32,52,53,54,46,55,56,224,0>>
+16:34:13.064 [debug] Client(Sally@127.0.0.1:53122): RECV PUBLISH(Q0, R0, D0, Topic=asset/commands/456, PacketId=undefined, Payload=<<"Some setpoint 456.78">>)
+16:34:13.064 [debug] Sally/sally PUBLISH to asset/commands/456: <<"Some setpoint 456.78">>
+16:34:13.064 [debug] Client(Sally@127.0.0.1:53122): RECV DISCONNECT(Q0, R0, D0)
+16:34:13.064 [debug] Client(127.0.0.1:53122): Terminated for normal
+16:34:13.064 [debug] Client(Sally@127.0.0.1:53122): Shutdown for normal

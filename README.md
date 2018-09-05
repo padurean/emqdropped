@@ -4,11 +4,15 @@ Command line utility that displays dropped messages given an [EMQTT](http://emqt
 
 ### Usage
 
-`macos/emqdropped emq.sample.log` to show just the count of dropped messages per topic
+`macos/emqdropped emq.sample.log`
 
-OR
+to show just the count of dropped messages per topic
 
-`macos/emqdropped emq.sample.log true` to also show the payloads of dropped messages
+OR 
+
+`macos/emqdropped emq.sample.log true`
+
+to also show the payloads of dropped messages
 
 Sample output:
 

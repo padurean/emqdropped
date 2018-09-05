@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -19,6 +20,16 @@ type Message struct {
 	Topic   string
 	Payload string
 }
+
+// TopicMessages ...
+type TopicMessages struct {
+	Topic string
+	Msgs  []Message
+	Count int
+}
+
+// MessagesPerTopic ...
+type MessagesPerTopic map[string]TopicMessages
 
 func extractMsg(l string) *Message {
 	// client := strings.Split(strings.Split(l, "Client(")[1], "):")[0]
@@ -43,11 +54,17 @@ func addMsgToMap(m map[Message]int, l string) {
 }
 
 func main() {
-
-	// TODO OGG: read file path from arg
 	if len(os.Args) < 2 {
 		fmt.Print(`Specify emq log path - e.g. "emqdropped ./emq.sample.log"`)
 		return
+	}
+	var showPayload = false
+	if len(os.Args) == 3 {
+		sp, err := strconv.ParseBool(os.Args[2])
+		if err != nil {
+			fmt.Println("ERROR: 2nd argument", os.Args[2], "not understood. Expected true/false (to show/hide dropped messages payload).")
+		}
+		showPayload = sp
 	}
 	path := os.Args[1]
 	f, err := os.Open(path)
@@ -89,9 +106,27 @@ func main() {
 	fmt.Println(cts, "delivered")
 
 	ctd := 0
+	var diffPerTopic = make(MessagesPerTopic)
 	for d, c := range diff {
 		ctd += c
-		fmt.Println(c, "dropped:\n", d)
+		tms, ok := diffPerTopic[d.Topic]
+		if !ok {
+			diffPerTopic[d.Topic] = TopicMessages{Topic: d.Topic, Msgs: []Message{d}, Count: c}
+		} else {
+			tms.Msgs = append(tms.Msgs, d)
+			tms.Count += c
+			diffPerTopic[d.Topic] = tms
+		}
 	}
-	fmt.Println("---\n", ctd, "dropped in total")
+	fmt.Println(ctd, "dropped")
+
+	for t, tms := range diffPerTopic {
+		fmt.Println("\t", t, ":", tms.Count, "dropped")
+		if showPayload {
+			for _, msg := range tms.Msgs {
+				fmt.Println("\t\t", msg.Payload)
+			}
+		}
+	}
+	fmt.Println("FINISHED.")
 }

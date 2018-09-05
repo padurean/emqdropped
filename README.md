@@ -4,7 +4,7 @@ Command line utility that displays dropped messages given an [EMQTT](http://emqt
 
 ### Usage
 
-`./macos/emqdropped ./emq.sample.log`
+`macos/emqdropped emq.sample.log`
 
 Sample output:
 
@@ -24,7 +24,14 @@ oltage_L3_N _=\"222.3\" flag=\"1\"/><RealEnergy_L1L2L3Con _=\"22800.0\" flag=\"1
 ### Built and cross-compiled using [Go](https://golang.org/)
 
 Binaries for **MacOS**, **Linux** and **Windows** are available in the folders with descriptive names.
+
 In case of errors compile it yourself:
-- On MacOS: `go build -o ./macos/emqdropped`.
-- On Linux: `go build -o ./linux-amd64/emqdropped`
-- On Windows: `go build -o ./windows/emqdropped.exe`
+
+- On MacOS: `go build -o macos/emqdropped`
+- On Linux: `go build -o linux-amd64/emqdropped`
+- On Windows: `go build -o windows/emqdropped.exe`
+
+Cross-compile on MacOS:
+
+- For Linux: env GOOS=linux GOARCH=amd64 go build -o linux-amd64/emqdropped
+- For Windows: `env GOOS=windows GOARCH=386 go build -o windows/emqdropped.exe`

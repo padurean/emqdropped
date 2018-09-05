@@ -23,7 +23,7 @@ oltage_L3_N _=\"222.3\" flag=\"1\"/><RealEnergy_L1L2L3Con _=\"22800.0\" flag=\"1
 
 ### Built and cross-compiled using [Go](https://golang.org/)
 
-Binaries for **MacOS**, **Linux** and **Windows** are available in the folders with descriptive names.
+Binaries for **MacOS**, **Linux** and **Windows** are available in folders with suggestive names.
 
 In case of errors compile it yourself:
 
@@ -33,5 +33,5 @@ In case of errors compile it yourself:
 
 Cross-compile on MacOS:
 
-- For Linux: env GOOS=linux GOARCH=amd64 go build -o linux-amd64/emqdropped
+- For Linux: `env GOOS=linux GOARCH=amd64 go build -o linux-amd64/emqdropped`
 - For Windows: `env GOOS=windows GOARCH=386 go build -o windows/emqdropped.exe`
